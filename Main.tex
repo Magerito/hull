@@ -1,0 +1,91 @@
+\documentclass[american,12pt,a4paper,toc=listof,parskip=full,singlespacing=true]{scrartcl}
+\setparsizes{0}{0}{0  plus 1fil}	% {Einzug}{Abstand}{Endzeilenleerraum}
+
+
+\RedeclareSectionCommand[ 
+  beforeskip=12bp, 
+  afterskip=6bp 
+]{section}
+
+\RedeclareSectionCommand[ 
+  beforeskip=12bp, 
+  afterskip=6bp 
+]{subsection}
+
+\RedeclareSectionCommand[ 
+  beforeskip=12bp, 
+  afterskip=6bp 
+]{subsubsection}
+
+\RedeclareSectionCommand[ 
+  beforeskip=12bp, 
+  afterskip=6bp
+]{paragraph}
+\setkomafont{paragraph}{\normalfont\underline}
+
+\usepackage{fontspec}	% Schriftart
+	\setmainfont{Arial}	% =
+\usepackage{babel}    % Deutsche Sprache in automatisch generiertem
+%\usepackage{latexsym}         % Fuer recht seltene Zeichen
+%\usepackage[utf8]{inputenc}   % =E4 =F6 =FC =DF; danach  geht auch das ß richtig
+\usepackage{caption}          % Figure-Captions formatieren
+\captionsetup{margin=0.5cm,labelfont=up,textfont=sl}
+\usepackage[a4paper,lmargin={3cm},rmargin={2cm},tmargin={2,5cm},bmargin={2,5cm}]{geometry}
+
+\usepackage{booktabs}	% Für Tabellen
+\usepackage{color, colortbl}	% Tabelle Zeilen oder Spalten Hintergrundfarbe
+\usepackage{enumitem}	% Spacing für Aufzählungen z.B. Itemize
+\usepackage{array}	% =
+\setlist[itemize]{nosep,after=\vskip-\baselineskip,label={\textbullet},leftmargin=*,before=\minipagetrue}	% =
+\makeatletter 	% =
+\newcommand{\minipagetrue}{\@minipagetrue}	% =
+\usepackage{graphicx}	% Einbinden von Bilder (PDF, PNG, JPEG)
+\usepackage{subcaption}	% Bilder nebeneinander, Positionierung Bilder bei mehrzeiler Unterschrift
+\usepackage[locale=DE,range-units = single]{siunitx} % schreiben von SI-Einheiten
+\usepackage{tocbasic}	% Position von Elementen im Dokument
+\usepackage{setspace}	% Zeilenabstand 
+\setstretch{1.35}	% =
+\usepackage{threeparttable}	% Fußnote Tabelle
+\usepackage{mwe}	% =
+\usepackage{svg}	% Nutzung von svg Datein
+\usepackage [bookmarksnumbered,hyperfootnotes=false]{hyperref}
+\usepackage{csquotes} % Anführungszeichen. Eingebunden wegen Fehlermeldung von biblatex
+%\usepackage[T1]{fontenc} %Umlaute bei \hyphenation{}
+%\usepackage{lmodern} % verhinder Schriftänderrung durch \usepackage[T1]{fontenc}
+\usepackage[headsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ofoot[\pagemark]{\pagemark}
+\ihead{\headmark}
+\automark[section]{section}
+\usepackage[printonlyused]{acronym}
+\usepackage[background=white ,arrow=black]{callouts} % Pfeile und Beschriftung in Bildern
+\usepackage{mathtools}
+\usepackage[section]{placeins} % Bilder in Section behalten
+\usepackage{tikz}	% Ablaufdiagramme
+\usetikzlibrary{fit,matrix,shapes.geometric,arrows.meta,positioning}	% =
+% \usepackage{float} % Positionierung von Bildern
+\usepackage{nicefrac} % Brüche im Text nebeneinander
+\usepackage{xfrac} % =
+\usepackage{pgfplots, pgfplotstable} % Säulendiagramm
+\pgfplotsset{compat=newest} % =
+\usepackage{xfrac}
+\hyphenchar\font=\string"7F %Silbentrennung
+\hyphenation{Ost-west-fa-len=Lip-pe}
+\include{subdata/BoxplotSetup}
+\usepackage{longtable} % Tabelle für Abkürzungsverzeichnis
+\usepackage{totpages} % gesamte Seitenanzahl zählen
+\usepackage{microtype}	% optimiert Textsetzung
+
+	
+\makeatletter				% reduziert den Abstand nach oben von einem Bild auf einer einzelnen Seite
+\setlength{\@fptop}{0pt}	% =
+\makeatother 				% =
+
+
+
+\begin{document} 
+\include{subdata/cover}
+\newpage
+\pagenumbering{arabic}
+\include{subdata/content}
+\end{document}
